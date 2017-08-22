@@ -2,93 +2,94 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=ht, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Validacion </title>
     <link rel="stylesheet" href="assets/css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Skranji|Suez+One" rel="stylesheet">
-
     <link href="https://fonts.googleapis.com/css?family=Iceland" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Aladin|New+Rocker" rel="stylesheet">
 </head>
 
 <body>
  <center>
-	<section>
-		<div>
-		<form class="formulario" action="" method="get" onSubmit="return validateForm(this.form)" name="formulario-registro" >
-		
-	<h1 align="center" id="titulo">Validacion  de Datos</h1>
-	 <div>
-	 	<label class="nombre">Nombre</label><br>
-		<input  id="Nombre" type="text" class="form"  
-		placeholder="Ingresa tu nombre" required><p></p>
-		<div id="salida-nombre"></div>
-	 </div>
-
-	  <div>
-	 	<label class="apellido">Apellido</label> <br>
-		<input   id="apellido" type="text" class="form" 
-		placeholder="Ingresa tu apellido" required><p></p>
-		<div id="salida-apellido"></div>
-	 </div>
-
-	  <div>
-	 	<label class="numero-documento">Numero de Documento</label><br>
-		<input  id="DNI"  type="number" class="form" 
-		placeholder="Ingresa su DNI"><p></p>
-		<div id="salida-numeroDNI"></div>
-	 </div>
-
-	  <div>
-	 	<label class="fecha-nacimiento">Fecha de Nacimiento</label><br>
-		<input  id="nacimiento" type="number" class="form"   
-		placeholder="DD/MM/AA"><p></p>
-		<div id="salida-fecha"></div>
-	 </div>
+  <section>
     <div>
-	 	<label id="celular"class="celular">Numero de Celular</label> <br>
-		<input type="number" class="form" 
-		placeholder=" numero de celular"><p></p>
-		<div id="salida-celular"></div>
-	 </div>
-	  <div>
-	 	<label class="telefono">Telefono</label> <br>
-		<input id="telefono" type="number" class="form" 
-		placeholder="numero de telefono"><p></p>
-		<div id="salida-telefono"></div>
-	 </div>
+   <form class="form-signup" action="" method="get" onSubmit="return validateForm(this.form)" >
+    
+  <h1 align="center" id="titulo">Validacion  de Datos</h1>
+   <div>
+        <label  for ="nombre">Nombre</label><br>
+        <input  id="nombre" type="text" maxlength="40" 
+        placeholder="Ingresa tu nombre" onkeydown="verificarNombre()" ><p></p>
+        <div id="salida-nombre"></div>
+   </div>
 
-	  <div>
-	 	<label  class="contraseña">Contraseña</label><br>
-		<input id="contraseña" type="password" name="psw" class	="" pattern=".{4,}" title="4 o mas caracteres"><p></p>
-		<div id="salida-contraseña"></div>
-	 </div>
+    <div>
+        <label for="apellido">Apellido</label> <br>
+        <input  id="apellido" type="text" 
+        placeholder="Ingresa tu apellido" onkeydown="verificarApellido()"><p></p>
+        <div id="salida-apellido"></div>
+   </div>
 
-	 <div>
-	 	<label   class="contraseña">Confirme su Contraseña</label><br>
-	 	 <input  id="confirmacion" type="password" name="psw" pattern=".{4,}" title="4 o mas caracteres"  ><p></p>
+    <div>
+        <label for="dni">Numero de Documento</label><br>
+        <input    id="dni"  type="number" class="form" 
+        placeholder="Ingresa su DNI"><p></p>
+        <div id="salida-numeroDNI"></div>
+   </div>
 
-	 </div>
+    <div>
+    <label for="nacimiento">Fecha de Nacimiento</label><br>
+    <input   name="nombre" id="nacimiento" type="date" class="form"   
+    placeholder="DD/MM/AA" max="01/01/1999" =""><p></p>
+    <div id="salida-fecha"></div>
+   </div>
 
-	<p></p>
-		<div class="comentario">
-		<label>Desea Ingresar algun Comentario</label> <br />
-		<textarea name="comment" rows="" cols="" ></textarea>
-		</div>
-	  
-	   <div class="checkbox">
-            <label>
+    <div>
+    <label for="celular">Numero de Celular</label> <br>
+    <input name="nombre" type="number" id="celular" class="form" maxlength="9" 
+    placeholder=" numero de celular"><p></p>
+    <div id="salida-celular"></div>
+   </div>
+
+    <div>
+    <label for="telefono">Telefono</label> <br>
+    <input  name="nombre"id="telefono" type="number" class="form" 
+    placeholder="numero de telefono"><p></p>
+    <div id="salida-telefono"></div>
+   </div>
+
+    <div>
+    <label  for="contraseña">Contraseña</label><br>
+    <input  id="contraseña" type="password" name="psw" class ="form" pattern=".{4,}" title="4 o mas caracteres"><p></p>
+    <div id="salida-contraseña"></div>
+   </div>
+
+   <div>
+    <label   for="confirmacion">Confirme su Contraseña</label><br>
+     <input  id="confirmacion" type="password" name="psw" pattern=".{4,}" title="4 o mas caracteres"  ><p></p>
+
+   </div>
+
+  <p></p>
+    <div >
+    <label  for="comentario"> Desea Ingresar algun Comentario</label> <br />
+    <textarea  id ="comentario" name="comment" rows="6" cols="30" ></textarea>
+    </div>
+    
+     <div class="checkbox">
+            <label for="chex">
              <input type="checkbox" value="remember-me">
              <span>Deseo recibir el Formulario vía email</span>
             </label>
-          </div>
-          <input type="submit" value="Registrar">
+      </div>
+
+          <input  id="enviar"type="submit" value="Registrar">
          
-	    </form>
-	   </div>
-	</section>
-	<script src="assets/js/javascript.js"></script>
+      </form>
+     </div>
+  </section>
+  <script src="assets/js/javascript.js"></script>
  </center>
 </body>
 </html>

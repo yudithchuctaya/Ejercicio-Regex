@@ -18,3 +18,8 @@ label{
 body{
 	background: #9ecb00;
 }
+input:focus{
+	background: aqua;
+	color :#000;
+
+}

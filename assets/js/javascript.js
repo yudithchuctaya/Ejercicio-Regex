@@ -1,7 +1,7 @@
         var enviar=true;
 		var nombre = document.getElementById("nombre").value;
 		var apellido = document.getElementById("apellido").value;
-		// var identidad = document.getElementById("DNI").value;
+		var dni = document.getElementById("dni").value;
 		var edad = document.getElementById("nacimiento").value;
 		var celular = document.getElementById("celular").value;
 		var telefono = document.getElementById("telefono").value;
@@ -18,9 +18,14 @@
 
      // var expreContraseña=(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$;
 		
+//_____________________funcion Enviar Formulario__________________________________________________
 
+window.onload=function(){
+	 var botonEnviar=document.getElementById("enviar");
+	 botonEnviar.onclick = Enviar;
+  }
 
-
+//___________________ VALIDACION DE NOMBRE_______________________________
 
 function verificarNombre(){
      
@@ -28,64 +33,52 @@ function verificarNombre(){
 	var salida_nombre= document.getElementById("salida-nombre");
 	  var enviar=false;
 	if (nombre.length > 0 && nombre.match(/^[a-zA-Z\s]*$/)){
-        salisa_nombre.innerHTML="<div style= color:blue style-size:10px;>Nombre Valido :) </div>";
+        salida_nombre.innerHTML="<div style= color:white style-size:10px;>Nombre Valido :) </div>";
       enviar=false;
 	}else{
-		salida_nombre.innerHTML="<div style= color:red;>Nombre Invalido:( </div>";
+		salida_nombre.innerHTML="<div style= color:red;>Nombre Invalido  :( </div>";
+	}
+	return enviar;
+}
+//_____________________VALIDACION  DE APELLIDO_________________________________
+
+function verificarApellido(){
+	 var apellido = document.getElementById("apellido").value;
+	var salida_apellido= document.getElementById("salida-apellido");
+	  var enviar=false;
+	if (apellido.length > 0 && apellido.match(/^[a-zA-Z\s]*$/)){
+        salida_apellido.innerHTML="<div style= color:white style-size:10px;>apellido Valido  :)  </div>";
+      enviar=false;
+	}else{
+		salida_apellido.innerHTML="<div style= color:red;>Apellido Invalido  :(  </div>";
 	}
 	return enviar;
 }
 
+//_____________________VALIDACION DE DNI_________________________________
 
-function verificarApellido(){
-	var apellido = document.getElementById("apellido").value;
-	var salida_apellido= document.getElementById("salida-apellido");
-	if (apellido===" " ){
-     salida_apellido.innerHTML="<div style= color:red;>Apellido Invalido</div>";
-
+function verificar_Dni(){
+	var expreDni=/(^([0-9]{8,8}\-[A-Z])|^)$/;
+	var dni = document.getElementById("dni").value;
+	var salida_dni= document.getElementById("salida_dni");
+	  var enviar=false;
+	if (dni.length > 0 && dni.match(/(^([0-9]{8,8}\-[A-Z])|^)$/)){
+        salida_dni.innerHTML="<div style= color:white style-size:10px;>dni Valido  :)  </div>";
+      enviar=false;
 	}else{
-		salida_apellido.innerHTML="<div style= color:green;>Apellido Valido</div>";
+		salida_dni.innerHTML="<div style= color:red;>DNI Invalido  :(  </div>";
 	}
+	return enviar;
 }
 
-  if(!nombre.value){
-			alert("escriba su nombre");
-			enviar=false;
-			
-     }
-
-  else if(!expreNombre.exec(nombre.value)){
-
-       	alert("Este campo solo acepta solo letras a-zA-Z");
-
-       	enviar=false;
-       }else if(!apellido.value)
-       {
-       	alert("escriba su apellido");
-       	enviar=false;
-       	apellido.focus();
-       }
+  
  
 
-window.onload=function(){
-	 var botonEnviar=document.getElementById("enviar");
-	 botonEnviar.onclick = Enviar;
-  }
 
 
 
 
 //_______________valiadcion Unitaria  en javascript________________________________________
-
-		//enviar formulario
-		 if ((formulario.name == 0) || (formulario.apellido ==0) || (formulario.identidad ==0) || (formulario.edad ==0) || (formulario.celular==0)||(formulario.telefono==0)||(formulario.contraseña==0)||(formulario.confirmacion ==0)) {
-                    alert('falta  completar informacion');
-                    
-                }else{
-        	    alert("Muchas gracias por enviar el formulario");
-	               document.formulario.submit();
-        }
-    
 
 
     //_________REALIZA LAS LETRAS EN  MAYUSCULAS________________
@@ -103,7 +96,7 @@ window.onload=function(){
     	 var midni =  /(^([0-9]{8,8}\-[A-Z])|^)$/;
 
          if (!(midni.test(formulario.dni))) {  
-               alert('Contenido del dni no es un DNI v&aacute;lido.');
+               // alert('ingrese su dni');
                     
                 } 
     }
@@ -116,11 +109,11 @@ window.onload=function(){
 		     edad = document.formulario.edad.value
 			document.formulario.edad.value=edad;
 			if (edad == ""){
-				alert("Tiene que introducir  su  edad.")
+				// alert("Tiene que introducir  su  edad.")
 				document.formulario.edad.focus()
 				return 0;
 			}else if (edad<18){
-					alert("Debe ser mayor de 18 años.")
+					// alert("Debe ser mayor de 18 años.")
 					document.formulario.edad.focus()
 					return 0;
 				}
@@ -137,7 +130,7 @@ window.onload=function(){
             return valor 
       } 
       if (document.formulario.nombre.value.length==0){
-		alert("Tiene que escribir su nombre")
+		// alert("Tiene que escribir su nombre")
 		document.formulario.nombre.focus()
 		return 0;
 	    }
